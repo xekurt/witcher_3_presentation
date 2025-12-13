@@ -28,7 +28,7 @@
             </section>
 
             <!-- Ayoub: Velen -->
-            <section>
+            <section id="velen">
                 <section>
                     <h2>Velen: No Man's Land</h2>
                     <h3>Presented by Ayoub</h3>
@@ -81,7 +81,7 @@
             </section>
 
             <!-- Alex: Novigrad -->
-            <section>
+            <section id="novigrad">
                 <section>
                     <h2>Novigrad: The Free City</h2>
                     <h3>Presented by Alex</h3>
@@ -134,7 +134,7 @@
             </section>
 
             <!-- Jaber: Skellige -->
-            <section>
+            <section id="skellige">
                 <section>
                     <h2>Skellige: The Isles</h2>
                     <h3>Presented by Jaber</h3>
@@ -195,6 +195,17 @@
         </div>
     </div>
 
+    <!-- Audio Soundtracks -->
+    <audio id="velen-audio" loop>
+        <source src="audio/velen.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="novigrad-audio" loop>
+        <source src="audio/novigrad.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="skellige-audio" loop>
+        <source src="audio/skellige.mp3" type="audio/mpeg">
+    </audio>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
     <script>
         Reveal.initialize({
@@ -207,6 +218,53 @@
             margin: 0.1, // Add margin around slides
             width: 1200, // Increase width to fit more content horizontally if needed
             height: 800,
+        }).then(() => {
+            const regionIds = ['velen', 'novigrad', 'skellige'];
+            const audioElements = {};
+            regionIds.forEach(id => {
+                const el = document.getElementById(id + '-audio');
+                if (el) {
+                    el.volume = 0.5; // Set volume to 50%
+                    audioElements[id] = el;
+                }
+            });
+
+            Reveal.on('slidechanged', event => {
+                const currentSlide = event.currentSlide;
+                let activeRegion = null;
+
+                // Check parent sections for region ID
+                let node = currentSlide;
+                while (node && node.tagName === 'SECTION') {
+                    if (regionIds.includes(node.id)) {
+                        activeRegion = node.id;
+                        break;
+                    }
+                    node = node.parentNode;
+                }
+
+                // Manage Audio Playback
+                regionIds.forEach(id => {
+                    const audio = audioElements[id];
+                    if (!audio) return;
+
+                    if (id === activeRegion) {
+                        if (audio.paused) {
+                            const playPromise = audio.play();
+                            if (playPromise !== undefined) {
+                                playPromise.catch(error => {
+                                    console.log("Audio play prevented:", error);
+                                });
+                            }
+                        }
+                    } else {
+                        if (!audio.paused) {
+                            audio.pause();
+                            audio.currentTime = 0; // Restart track when re-entering
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>
