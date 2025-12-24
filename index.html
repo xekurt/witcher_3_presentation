@@ -180,15 +180,35 @@
                 </section>
                 <section>
                     <h3>Map & Combat: Survival in the Muck</h3>
-                    <ul>
-                        <li class="fragment"><strong>Navigational Maze:</strong> Deceptive terrain in <em>Crookback
-                                Bog</em> slows movement; <em>Bald Mountain</em> looms above.</li>
-                        <li class="fragment"><strong>Hazards:</strong> Ignitable <strong>Swamp Gas</strong> turns the
-                            environment into a weapon with <em>Igni</em>.</li>
-                        <li class="fragment"><strong>Tactics:</strong> Reliance on <em>Necrophage Oil</em> and
-                            <em>Yrden</em> to trap incorporeal foes like Wraiths.
-                        </li>
-                    </ul>
+                    <div style="display: grid; grid-template-columns: 50% 50%; align-items: center; gap: 20px;">
+                        <div>
+                            <ul>
+                                <li class="fragment" data-fragment-index="1"><strong>Navigational Maze:</strong>
+                                    Deceptive
+                                    terrain in <em>Crookback
+                                        Bog</em> slows movement; <em>Bald Mountain</em> looms above.</li>
+                                <li class="fragment" data-fragment-index="2"><strong>Hazards:</strong> Ignitable
+                                    <strong>Swamp Gas</strong> turns the
+                                    environment into a weapon with <em>Igni</em>.
+                                </li>
+                                <li class="fragment" data-fragment-index="3"><strong>Tactics:</strong> Reliance on
+                                    <em>Necrophage Oil</em> and
+                                    <em>Yrden</em> to trap incorporeal foes like Wraiths.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="r-stack">
+                            <!-- Ignitable Gas GIF (Visible during index 2) -->
+                            <img class="fragment current-visible" data-fragment-index="2"
+                                src="velen/gameplay_map/igni_gas.gif" alt="Igni on Swamp Gas"
+                                style="width: 100%; border: 2px solid var(--witcher-gold); border-radius: 8px;">
+
+                            <!-- Yrden GIF (Visible starting index 3) -->
+                            <img class="fragment fade-in" data-fragment-index="3" src="velen/gameplay_map/yerden.gif"
+                                alt="Yrden Trap"
+                                style="width: 100%; border: 2px solid var(--witcher-gold); border-radius: 8px;">
+                        </div>
+                    </div>
                 </section>
                 <section>
                     <h3>Songs: The Sound of Agony</h3>
@@ -347,6 +367,16 @@
     </audio>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="music-control-btn" title="Toggle Music">🔊</button>
+
+    <!-- Image Preview Modal -->
+    <div id="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
     <script>
         Reveal.initialize({
             hash: true,
@@ -361,6 +391,7 @@
         }).then(() => {
             const regionIds = ['velen', 'novigrad', 'skellige'];
             const audioElements = {};
+            let isMusicEnabled = true;
             regionIds.forEach(id => {
                 const el = document.getElementById(id + '-audio');
                 if (el) {
@@ -369,11 +400,12 @@
                 }
             });
 
-            Reveal.on('slidechanged', event => {
-                const currentSlide = event.currentSlide;
+            // Function to update playback based on current state
+            function updateMusicState() {
                 let activeRegion = null;
+                const currentSlide = Reveal.getCurrentSlide();
 
-                // Check parent sections for region ID
+                // Determine active region
                 let node = currentSlide;
                 while (node && node.tagName === 'SECTION') {
                     if (regionIds.includes(node.id)) {
@@ -383,12 +415,11 @@
                     node = node.parentNode;
                 }
 
-                // Manage Audio Playback
                 regionIds.forEach(id => {
                     const audio = audioElements[id];
                     if (!audio) return;
 
-                    if (id === activeRegion) {
+                    if (id === activeRegion && isMusicEnabled) {
                         if (audio.paused) {
                             const playPromise = audio.play();
                             if (playPromise !== undefined) {
@@ -400,10 +431,62 @@
                     } else {
                         if (!audio.paused) {
                             audio.pause();
-                            audio.currentTime = 0; // Restart track when re-entering
+                        }
+                        // Reset track if we've left the region
+                        if (id !== activeRegion) {
+                            audio.currentTime = 0;
                         }
                     }
                 });
+            }
+
+            // Slide Change Listener
+            Reveal.on('slidechanged', event => {
+                updateMusicState();
+            });
+
+            // Music Toggle Button Listener
+            const musicBtn = document.getElementById('music-toggle');
+            musicBtn.addEventListener('click', () => {
+                isMusicEnabled = !isMusicEnabled;
+                musicBtn.textContent = isMusicEnabled ? '🔊' : '🔇';
+                updateMusicState();
+            });
+
+            // Image Preview Modal Logic
+            const modal = document.getElementById("image-modal");
+            const modalImg = document.getElementById("img01");
+            const captionText = document.getElementById("caption");
+            const closeBtn = document.getElementsByClassName("close-modal")[0];
+
+            // Add click event to all images in the presentation
+            document.querySelector('.reveal').addEventListener('click', function (e) {
+                if (e.target.tagName === 'IMG') {
+                    // Prevent default behavior if needed
+                    e.preventDefault();
+
+                    modal.style.display = "block";
+                    modalImg.src = e.target.src;
+                    captionText.innerHTML = e.target.alt || "Image Preview";
+                }
+            });
+
+            // Close logic
+            closeBtn.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            modal.onclick = function (e) {
+                if (e.target === modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            // Close on escape key
+            document.addEventListener('keydown', function (event) {
+                if (event.key === "Escape") {
+                    modal.style.display = "none";
+                }
             });
         });
     </script>

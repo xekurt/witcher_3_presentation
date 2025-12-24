@@ -123,131 +123,6 @@ body {
     background: #1a1a1a;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap');
-
-:root {
-    --witcher-gold: #c6a664;
-    --witcher-silver: #e2e2e2;
-    --witcher-red: #8a0b0b;
-    --witcher-dark: #0f0f0f;
-    --glass-bg: rgba(15, 15, 15, 0.85);
-    --glass-border: rgba(198, 166, 100, 0.3);
-}
-
-body {
-    background-color: var(--witcher-dark);
-    background-image: url('background.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-}
-
-.reveal {
-    color: var(--witcher-silver);
-    font-size: 30px;
-    /* Base font size for better scaling */
-}
-
-.reveal h1,
-.reveal h2,
-.reveal h3,
-.reveal h4,
-.reveal h5,
-.reveal h6 {
-    font-family: 'Cinzel', serif;
-    color: var(--witcher-gold);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    text-transform: uppercase;
-    margin-bottom: 0.5em;
-}
-
-.reveal h1 {
-    font-size: 2.2em;
-    border-bottom: 2px solid var(--witcher-red);
-    padding-bottom: 10px;
-    display: inline-block;
-}
-
-.reveal h2 {
-    font-size: 1.6em;
-}
-
-.reveal h3 {
-    font-size: 1.3em;
-}
-
-.reveal p,
-.reveal li {
-    font-size: 0.9em;
-    line-height: 1.4;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-}
-
-.reveal .slides section {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    box-sizing: border-box;
-    /* Ensure padding doesn't increase width */
-}
-
-.reveal ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.reveal ul li {
-    margin-bottom: 10px;
-    padding-left: 25px;
-    position: relative;
-}
-
-.reveal ul li::before {
-    content: '⚔';
-    color: var(--witcher-red);
-    position: absolute;
-    left: 0;
-    font-size: 1em;
-    top: 2px;
-}
-
-.reveal strong {
-    color: var(--witcher-gold);
-    font-weight: 700;
-}
-
-.reveal .fragment.visible {
-    animation: fadeIn 0.8s ease-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Custom scrollbar for code blocks or overflow */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #1a1a1a;
-}
-
 ::-webkit-scrollbar-thumb {
     background: var(--witcher-gold);
     border-radius: 4px;
@@ -263,4 +138,117 @@ body {
     border: 2px solid var(--witcher-gold);
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Image Preview Modal */
+#image-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    /* Higher than reveal.js */
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1200px;
+    max-height: 80vh;
+    object-fit: contain;
+    border: 3px solid var(--witcher-gold);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(198, 166, 100, 0.5);
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    color: var(--witcher-silver);
+    font-family: 'Cinzel', serif;
+    padding: 10px 0;
+    height: 150px;
+    font-size: 1.2em;
+}
+
+.modal-content,
+#caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 2001;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--witcher-red);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Make images clickable */
+.reveal img {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.reveal img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px var(--witcher-gold);
+}
+
+/* Music Control Button */
+.music-control-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: rgba(15, 15, 15, 0.8);
+    border: 2px solid var(--witcher-gold);
+    color: var(--witcher-gold);
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.music-control-btn:hover {
+    background: var(--witcher-gold);
+    color: var(--witcher-dark);
+    box-shadow: 0 0 15px var(--witcher-gold);
 }
