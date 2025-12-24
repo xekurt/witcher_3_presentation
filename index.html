@@ -63,93 +63,98 @@
                     </p>
                 </section>
                 <section>
-                    <h3>The Velen Bestiary</h3>
-                    <div style="font-size: 0.5em; display: flex; justify-content: space-between; gap: 10px;">
-
-                        <!-- Necrophages -->
-                        <div style="flex: 1;">
-                            <h4
-                                style="font-size: 1.2em; color: var(--witcher-red); border-bottom: 1px solid #666; margin-bottom: 10px;">
-                                Necrophages</h4>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
-                                <div><img src="velen/necrophages/drowners.webp"
-                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
-                                    <p style="margin: 0;">Drowner</p>
-                                </div>
-                                <div><img src="velen/necrophages/ghouls.webp"
-                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
-                                    <p style="margin: 0;">Ghoul</p>
-                                </div>
-                                <div><img src="velen/necrophages/rotfiend.webp"
-                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
-                                    <p style="margin: 0;">Rotfiend</p>
-                                </div>
-                                <div><img src="velen/necrophages/grave_hags.webp"
-                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
-                                    <p style="margin: 0;">Grave Hag</p>
-                                </div>
-                            </div>
+                    <h3>Bestiary: Necrophages</h3>
+                    <div class="r-stack">
+                        <div class="fragment fade-out" data-fragment-index="1">
+                            <img src="velen/necrophages/drowners.webp"
+                                style="height: 450px; width: auto; object-fit: contain; border-radius: 8px; border: 2px solid var(--witcher-gold);">
+                            <p><strong>Drowner</strong></p>
+                            <p style="font-size: 0.6em;">Drowned dead, often found near water.</p>
                         </div>
-
-                        <!-- Swamp Horrors -->
-                        <div style="flex: 1;">
-                            <h4
-                                style="font-size: 1.2em; color: var(--witcher-red); border-bottom: 1px solid #666; margin-bottom: 10px;">
-                                Swamp Horrors</h4>
-                            <div style="display: grid; grid-template-columns: 1fr; gap: 5px;">
-                                <div><img src="velen/swamp_horrors/water_hags.webp"
-                                        style="height: 80px; width: 100%; object-fit: cover; border-radius: 4px;">
-                                    <p style="margin: 0;">Water Hag</p>
-                                </div>
-                                <div><img src="velen/swamp_horrors/fogler.webp"
-                                        style="height: 80px; width: 100%; object-fit: cover; border-radius: 4px;">
-                                    <p style="margin: 0;">Foglet</p>
-                                </div>
-                            </div>
+                        <div class="fragment current-visible" data-fragment-index="1">
+                            <img src="velen/necrophages/ghouls.webp"
+                                style="height: 450px; width: auto; object-fit: contain; border-radius: 8px; border: 2px solid var(--witcher-gold);">
+                            <p><strong>Ghoul</strong></p>
+                            <p style="font-size: 0.6em;">Scavengers that feast on the dead.</p>
                         </div>
-
-                        <!-- Ogroids & Beasts -->
-                        <div style="flex: 1;">
-                            <h4
-                                style="font-size: 1.2em; color: var(--witcher-red); border-bottom: 1px solid #666; margin-bottom: 10px;">
-                                Ogroids & Beasts</h4>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
-                                <div><img src="velen/ogroids_beasts/nekker.webp"
-                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
-                                    <p style="margin: 0;">Nekker</p>
-                                </div>
-                                <div><img src="velen/ogroids_beasts/wolf.webp"
-                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
-                                    <p style="margin: 0;">Wolf</p>
-                                </div>
-                                <div style="grid-column: span 2;"><img src="velen/ogroids_beasts/dog.webp"
-                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
-                                    <p style="margin: 0;">Wild Dog</p>
-                                </div>
-                            </div>
+                        <div class="fragment current-visible" data-fragment-index="2">
+                            <img src="velen/necrophages/rotfiend.webp"
+                                style="height: 450px; width: auto; object-fit: contain; border-radius: 8px; border: 2px solid var(--witcher-gold);">
+                            <p><strong>Rotfiend</strong></p>
+                            <p style="font-size: 0.6em;">Explosive decomposition in motion.</p>
                         </div>
-
-                        <!-- Relicts & Cursed -->
-                        <div style="flex: 1;">
-                            <h4
-                                style="font-size: 1.2em; color: var(--witcher-red); border-bottom: 1px solid #666; margin-bottom: 10px;">
-                                Relicts & Cursed</h4>
-                            <div style="display: grid; grid-template-columns: 1fr; gap: 5px;">
-                                <div><img src="velen/cursed/leshy.webp"
-                                        style="height: 70px; width: 100%; object-fit: cover; border-radius: 4px;">
-                                    <p style="margin: 0;">Leshen</p>
-                                </div>
-                                <div><img src="velen/cursed/fiend.webp"
-                                        style="height: 70px; width: 100%; object-fit: cover; border-radius: 4px;">
-                                    <p style="margin: 0;">Fiend</p>
-                                </div>
-                                <div><img src="velen/cursed/botchling.jpg"
-                                        style="height: 70px; width: 100%; object-fit: cover; border-radius: 4px;">
-                                    <p style="margin: 0;">Botchling</p>
-                                </div>
-                            </div>
+                        <div class="fragment fade-in" data-fragment-index="3">
+                            <img src="velen/necrophages/grave_hags.webp"
+                                style="height: 450px; width: auto; object-fit: contain; border-radius: 8px; border: 2px solid var(--witcher-gold);">
+                            <p><strong>Grave Hag</strong></p>
+                            <p style="font-size: 0.6em;">Uses a long tongue to devour corpses.</p>
                         </div>
+                    </div>
+                </section>
 
+                <section>
+                    <h3>Bestiary: Swamp Horrors</h3>
+                    <div class="r-stack">
+                        <div class="fragment fade-out" data-fragment-index="1">
+                            <img src="velen/swamp_horrors/water_hags.webp"
+                                style="height: 450px; width: auto; object-fit: contain; border-radius: 8px; border: 2px solid var(--witcher-gold);">
+                            <p><strong>Water Hag</strong></p>
+                            <p style="font-size: 0.6em;">Lurks in murky waters, throwing mud.</p>
+                        </div>
+                        <div class="fragment fade-in" data-fragment-index="1">
+                            <img src="velen/swamp_horrors/fogler.webp"
+                                style="height: 450px; width: auto; object-fit: contain; border-radius: 8px; border: 2px solid var(--witcher-gold);">
+                            <p><strong>Foglet</strong></p>
+                            <p style="font-size: 0.6em;">Hides within thick magical fog.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Bestiary: Ogroids & Beasts</h3>
+                    <div class="r-stack">
+                        <div class="fragment fade-out" data-fragment-index="1">
+                            <img src="velen/ogroids_beasts/nekker.webp"
+                                style="height: 450px; width: auto; object-fit: contain; border-radius: 8px; border: 2px solid var(--witcher-gold);">
+                            <p><strong>Nekker</strong></p>
+                            <p style="font-size: 0.6em;">Small, fast, and swarm in packs.</p>
+                        </div>
+                        <div class="fragment current-visible" data-fragment-index="1">
+                            <img src="velen/ogroids_beasts/wolf.webp"
+                                style="height: 450px; width: auto; object-fit: contain; border-radius: 8px; border: 2px solid var(--witcher-gold);">
+                            <p><strong>Wolf</strong></p>
+                            <p style="font-size: 0.6em;">Uses pack tactics to flank prey.</p>
+                        </div>
+                        <div class="fragment fade-in" data-fragment-index="2">
+                            <img src="velen/ogroids_beasts/dog.webp"
+                                style="height: 450px; width: auto; object-fit: contain; border-radius: 8px; border: 2px solid var(--witcher-gold);">
+                            <p><strong>Wild Dog</strong></p>
+                            <p style="font-size: 0.6em;">Starving scavengers of the war.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Bestiary: Relicts & Cursed</h3>
+                    <div class="r-stack">
+                        <div class="fragment fade-out" data-fragment-index="1">
+                            <img src="velen/cursed/leshy.webp"
+                                style="height: 450px; width: auto; object-fit: contain; border-radius: 8px; border: 2px solid var(--witcher-gold);">
+                            <p><strong>Leshen</strong></p>
+                            <p style="font-size: 0.6em;">Ancient forest spirit commanding wolves and crows.</p>
+                        </div>
+                        <div class="fragment current-visible" data-fragment-index="1">
+                            <img src="velen/cursed/fiend.webp"
+                                style="height: 450px; width: auto; object-fit: contain; border-radius: 8px; border: 2px solid var(--witcher-gold);">
+                            <p><strong>Fiend</strong></p>
+                            <p style="font-size: 0.6em;">Massive muscle and a hypnotic third eye.</p>
+                        </div>
+                        <div class="fragment fade-in" data-fragment-index="2">
+                            <img src="velen/cursed/botchling.jpg"
+                                style="height: 450px; width: auto; object-fit: contain; border-radius: 8px; border: 2px solid var(--witcher-gold);">
+                            <p><strong>Botchling</strong></p>
+                            <p style="font-size: 0.6em;">A cursed, unwanted fetus transformed.</p>
+                        </div>
                     </div>
                 </section>
                 <section>
