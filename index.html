@@ -35,47 +35,149 @@
                     <p>A land ravaged by war, defined by misery, swamps, and dark magic.</p>
                 </section>
                 <section>
-                    <h3>Overview: Nature & Dangers</h3>
-                    <ul>
-                        <li class="fragment"><strong>Landscape:</strong> Muddy swamps, dense forests, war-torn
-                            battlefields, and impoverished villages.</li>
-                        <li class="fragment"><strong>Atmosphere:</strong> Gloomy, foggy, and oppressive. The land feels
-                            "cursed."</li>
-                        <li class="fragment"><strong>Dangers:</strong> Necrophages (Ghouls, Drowners) feasting on
-                            corpses; bandits scavenging the dead; The Crones.</li>
-                    </ul>
+                    <h3>Visuals: The Grim Reality</h3>
+                    <p style="font-size: 0.8em;">Inspired by the <strong>Masurian Lake District</strong> of Poland.</p>
+                    <div style="display: grid; grid-template-columns: 40% 60%; align-items: center; gap: 10px;">
+                        <div style="text-align: left;">
+                            <ul>
+                                <li class="fragment" data-fragment-index="1"><strong
+                                        style="color: var(--witcher-red);">Hanged Man's Tree</strong></li>
+                                <li class="fragment" data-fragment-index="2"><strong>Crow's Perch</strong></li>
+                                <li class="fragment" data-fragment-index="3"><strong>Fyke Isle</strong></li>
+                            </ul>
+                        </div>
+                        <div class="r-stack">
+                            <img class="fragment current-visible" data-fragment-index="1"
+                                src="velen/hanged_man_tree.webp" alt="Hanged Man's Tree"
+                                style="max-height: 400px; border: 2px solid #a0a0a0; border-radius: 5px;">
+                            <img class="fragment current-visible" data-fragment-index="2" src="velen/crows_perch.webp"
+                                alt="Crow's Perch"
+                                style="max-height: 400px; border: 2px solid #a0a0a0; border-radius: 5px;">
+                            <img class="fragment fade-in" data-fragment-index="3" src="velen/fyke_isle.webp"
+                                alt="Fyke Isle"
+                                style="max-height: 400px; border: 2px solid #a0a0a0; border-radius: 5px;">
+                        </div>
+                    </div>
+                    <p class="fragment" style="font-size: 0.7em; margin-top: 20px;">
+                        <strong>Atmosphere:</strong> Desaturated browns and greens create an oppressive mood.
+                    </p>
+                </section>
+                <section>
+                    <h3>The Velen Bestiary</h3>
+                    <div style="font-size: 0.5em; display: flex; justify-content: space-between; gap: 10px;">
+
+                        <!-- Necrophages -->
+                        <div style="flex: 1;">
+                            <h4
+                                style="font-size: 1.2em; color: var(--witcher-red); border-bottom: 1px solid #666; margin-bottom: 10px;">
+                                Necrophages</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                                <div><img src="velen/necrophages/drowners.webp"
+                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
+                                    <p style="margin: 0;">Drowner</p>
+                                </div>
+                                <div><img src="velen/necrophages/ghouls.webp"
+                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
+                                    <p style="margin: 0;">Ghoul</p>
+                                </div>
+                                <div><img src="velen/necrophages/rotfiend.webp"
+                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
+                                    <p style="margin: 0;">Rotfiend</p>
+                                </div>
+                                <div><img src="velen/necrophages/grave_hags.webp"
+                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
+                                    <p style="margin: 0;">Grave Hag</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Swamp Horrors -->
+                        <div style="flex: 1;">
+                            <h4
+                                style="font-size: 1.2em; color: var(--witcher-red); border-bottom: 1px solid #666; margin-bottom: 10px;">
+                                Swamp Horrors</h4>
+                            <div style="display: grid; grid-template-columns: 1fr; gap: 5px;">
+                                <div><img src="velen/swamp_horrors/water_hags.webp"
+                                        style="height: 80px; width: 100%; object-fit: cover; border-radius: 4px;">
+                                    <p style="margin: 0;">Water Hag</p>
+                                </div>
+                                <div><img src="velen/swamp_horrors/fogler.webp"
+                                        style="height: 80px; width: 100%; object-fit: cover; border-radius: 4px;">
+                                    <p style="margin: 0;">Foglet</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ogroids & Beasts -->
+                        <div style="flex: 1;">
+                            <h4
+                                style="font-size: 1.2em; color: var(--witcher-red); border-bottom: 1px solid #666; margin-bottom: 10px;">
+                                Ogroids & Beasts</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                                <div><img src="velen/ogroids_beasts/nekker.webp"
+                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
+                                    <p style="margin: 0;">Nekker</p>
+                                </div>
+                                <div><img src="velen/ogroids_beasts/wolf.webp"
+                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
+                                    <p style="margin: 0;">Wolf</p>
+                                </div>
+                                <div style="grid-column: span 2;"><img src="velen/ogroids_beasts/dog.webp"
+                                        style="height: 60px; width: 100%; object-fit: cover; border-radius: 4px;">
+                                    <p style="margin: 0;">Wild Dog</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Relicts & Cursed -->
+                        <div style="flex: 1;">
+                            <h4
+                                style="font-size: 1.2em; color: var(--witcher-red); border-bottom: 1px solid #666; margin-bottom: 10px;">
+                                Relicts & Cursed</h4>
+                            <div style="display: grid; grid-template-columns: 1fr; gap: 5px;">
+                                <div><img src="velen/cursed/leshy.webp"
+                                        style="height: 70px; width: 100%; object-fit: cover; border-radius: 4px;">
+                                    <p style="margin: 0;">Leshen</p>
+                                </div>
+                                <div><img src="velen/cursed/fiend.webp"
+                                        style="height: 70px; width: 100%; object-fit: cover; border-radius: 4px;">
+                                    <p style="margin: 0;">Fiend</p>
+                                </div>
+                                <div><img src="velen/cursed/botchling.jpg"
+                                        style="height: 70px; width: 100%; object-fit: cover; border-radius: 4px;">
+                                    <p style="margin: 0;">Botchling</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </section>
                 <section>
                     <h3>Interactive Map</h3>
                     <iframe class="map-frame" data-src="https://witcher3map.com/v/"></iframe>
                 </section>
                 <section>
-                    <h3>Influence: Economics & Combat</h3>
+                    <h3>Map & Combat: Survival in the Muck</h3>
                     <ul>
-                        <li class="fragment"><strong>Economics:</strong> Extreme poverty. Merchants have little gold;
-                            food is scarce. Loot is often "junk."</li>
-                        <li class="fragment"><strong>Combat:</strong> Open fields allow for maneuvering, but swamps slow
-                            movement. Mud and trees can obstruct dodging.</li>
+                        <li class="fragment"><strong>Navigational Maze:</strong> Deceptive terrain in <em>Crookback
+                                Bog</em> slows movement; <em>Bald Mountain</em> looms above.</li>
+                        <li class="fragment"><strong>Hazards:</strong> Ignitable <strong>Swamp Gas</strong> turns the
+                            environment into a weapon with <em>Igni</em>.</li>
+                        <li class="fragment"><strong>Tactics:</strong> Reliance on <em>Necrophage Oil</em> and
+                            <em>Yrden</em> to trap incorporeal foes like Wraiths.
+                        </li>
                     </ul>
                 </section>
                 <section>
-                    <h3>Music & Experience</h3>
-                    <p>The soundscape of Velen is <strong>melancholic and eerie</strong>.</p>
+                    <h3>Songs: The Sound of Agony</h3>
+                    <p>Featuring tracks like <em>"The Ladies of the Woods"</em>, <em>"The Vagabond"</em>, and
+                        <em>"Fields of Doomed Souls"</em>.
+                    </p>
                     <ul>
-                        <li class="fragment">Low, droning strings and wailing vocals evoke a sense of hopelessness.</li>
-                        <li class="fragment">Music swells with tension in the swamps, making the player feel constantly
-                            watched.</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Movement</h3>
-                    <ul>
-                        <li class="fragment"><strong>Horse (Roach):</strong> Good for traversing the war-torn plains,
-                            but struggles in deep swamps.</li>
-                        <li class="fragment"><strong>Boat:</strong> Useful for navigating the Pontar river delta and
-                            coastal shipwrecks.</li>
-                        <li class="fragment"><strong>Feet:</strong> Essential for investigating dense bogs and small,
-                            cluttered villages.</li>
+                        <li class="fragment"><strong>Instrumentation:</strong> The <strong>Hurdy-Gurdy</strong> and
+                            Byzantine Lyra produce a droning, ancient sound distinct to this region.</li>
+                        <li class="fragment"><strong>Vocals:</strong> Wailing chants evoke the primal fear of the Crones
+                            and the hopelessness of the peasantry.</li>
                     </ul>
                 </section>
             </section>
